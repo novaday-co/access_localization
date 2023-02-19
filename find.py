@@ -14,4 +14,4 @@ for index,item in enumerate(results):
     if fileName is None or item > temp:
          fileName = item
 
-print(fileName)
+print(fileName.rsplit('.',1)[0])
