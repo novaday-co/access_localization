@@ -1,0 +1,42 @@
+name: "Build & Release"
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  development:
+    name: 🎉 Convert Action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: master
+
+      # - name: Setup python
+      #   uses: actions/setup-python@v4
+      #   with:
+      #     python-version: '3.10' 
+      #     cache: 'pip'
+
+      # - name: install requirements 
+      #   run: pip install -r requirements.txt
+
+      - name: run python code find file
+        id: convert
+        run: |
+          output=$(python find.py)
+          echo "ReleaseNumber=$output" >> $GITHUB_OUTPUT
+
+      - name: Generate JSON
+        uses: novaday-co/localization_action@0.3.0
+        with:
+          input_file: ${{ steps.convert.outputs.ReleaseNumber }}.xlsx          
+
+      - name: Push To Releases
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: '*.json,*.arb'
+          tag : ${{ steps.convert.outputs.ReleaseNumber }}+${{ github.run_number }}
+          token : ${{ secrets.TOKEN }}
