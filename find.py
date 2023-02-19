@@ -5,7 +5,13 @@ results=[]
 files=os.listdir()
 for file in files:
     if file.endswith(".xlsx"):
-        file=file.split('_')[1]
-        file=file.rsplit('.',1)[0]
         results.append(file)
-print(max(results))        
+fileName = None
+
+for index,item in enumerate(results):
+    temp=item.split('_')[1]
+    temp=item.rsplit('.',1)[0]
+    if fileName is None or item > temp:
+         fileName = item
+
+print(fileName)
