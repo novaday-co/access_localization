@@ -21,9 +21,12 @@ jobs:
           echo "ReleaseNumber=$output" >> $GITHUB_OUTPUT
 
       - name: Generate JSON
-        uses: novaday-co/localization_action@0.3.0
+        uses: novaday-co/localization_action@1.0.0
         with:
-          input_file: ${{ steps.convert.outputs.ReleaseNumber }}.xlsx          
+          input_file: ${{ steps.convert.outputs.ReleaseNumber }}.xlsx
+          generate_flutter: true
+          generate_laravel: true
+          generate_vue: true
 
       - name: Push To Releases
         uses: ncipollo/release-action@v1
