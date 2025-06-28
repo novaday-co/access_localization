@@ -19,6 +19,10 @@ jobs:
         with:
           python-version: '3.10'
 
+      - name: Install compatible numpy and pandas
+        run: |
+          pip install numpy<1.24 pandas==1.5.3
+
       - name: run python code find file
         id: convert
         run: |
