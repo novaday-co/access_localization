@@ -13,5 +13,5 @@ Once your pull request has been merged, we will use the `novaday-co/localization
 
 ## Translating Variables
 
-This project supports variables in translations to allow for easy customization. To use a variable in a translation, enclose the variable name in curly braces. For example, For example : `Hello, {name}` where {name} is a variable.
+This project supports variables in translations to allow for easy customization. To use a variable in a translation, enclose the variable name in curly braces. For example, For example : `Hello, {name}` where {name} is a variable. 
  
