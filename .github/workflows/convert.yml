@@ -37,9 +37,9 @@ jobs:
           generate_laravel: true
           generate_vue: true
 
-- name: Push To Releases
-  uses: ncipollo/release-action@v1
-  with:
-    artifacts: '*.json,*.arb'
-    tag: ${{ steps.convert.outputs.ReleaseNumber }}+${{ github.run_number }}
-    token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Push To Releases
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: '*.json,*.arb'
+          tag : ${{ steps.convert.outputs.ReleaseNumber }}+${{ github.run_number }}
+          token : ${{ secrets.TOKEN }}
