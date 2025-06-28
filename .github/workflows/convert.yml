@@ -21,7 +21,7 @@ jobs:
 
       - name: Install compatible numpy and pandas
         run: |
-          pip install numpy<1.24 pandas==1.5.3
+            pip install "numpy<1.24" "pandas==1.5.3"
 
       - name: run python code find file
         id: convert
