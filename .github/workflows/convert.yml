@@ -37,7 +37,7 @@ jobs:
           generate_laravel: true
           generate_vue: true
 
-    - name: Push To Releases
+      - name: Push To Releases
         uses: ncipollo/release-action@v1
         with:
           artifacts: '*.json,*.arb'
