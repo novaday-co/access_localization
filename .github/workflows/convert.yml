@@ -41,5 +41,5 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: '*.json,*.arb'
-          tag : ${{ steps.convert.outputs.ReleaseNumber }}+${{ github.run_number }}
-          token : ${{ secrets.TOKEN }}
+          tag: ${{ steps.convert.outputs.ReleaseNumber }}+${{ github.run_number }}
+          token: ${{ secrets.TOKEN }}
